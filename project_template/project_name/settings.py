@@ -45,12 +45,19 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
+
     # allauth
     'django.contrib.sites',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
+    "corsheaders",
+    "dry_rest_permissions",
+    "django_rest_passwordreset",
+    "storages",
 
     "users",
 ]
@@ -161,8 +168,8 @@ REST_FRAMEWORK = {
 
 
 REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": 'users.serializers.write_serializers.SerializerUser',
-    "LOGIN_SERIALIZER": 'users.serializers.write_serializers.SerializerUserLogin',
+    "USER_DETAILS_SERIALIZER": 'users.serializers.read_serializers.UserReadSerializer',
+    "LOGIN_SERIALIZER": 'users.serializers.write_serializers.UserLoginSerializer',
 }
 
 SITE_ID = 1
@@ -179,7 +186,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 # USERS
 ##################################
 AUTH_USER_MODEL = "users.User"
+REST_USE_JWT = True
 
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = True
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+
+SOCIALACCOUNT_EMAIL_VERIFICATION = None
+SOCIALACCOUNT_EMAIL_REQUIRED = False
 
 ##################################
 # AWS

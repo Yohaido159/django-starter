@@ -4,3 +4,10 @@ dj-rest-auth
 django-allauth
 django-rql
 django-auto-prefetching
+djangorestframework-simplejwt
+serpy
+django_rest_passwordreset
+django-cors-headers
+django-admin-autocomplete-filter
+dry-rest-permissions
+django-storages
