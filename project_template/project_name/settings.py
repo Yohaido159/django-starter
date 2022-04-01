@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -186,9 +188,9 @@ AUTH_USER_MODEL = "users.User"
 #AWS_ACCESS_KEY_ID = os.environ.get('PRIVATE_AWS_ACCESS_KEY_ID')
 #AWS_SECRET_ACCESS_KEY = os.environ.get('PRIVATE_AWS_SECRET_ACCESS_KEY')
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
-AWS_STORAGE_BUCKET_NAME = '{{ project_name }}'
-AWS_LOCATION = "{{ project_name }}-static"
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# AWS_STORAGE_BUCKET_NAME = '{{ project_name }}'
+# AWS_LOCATION = "{{ project_name }}-static"
 
 #AWS_S3_CUSTOM_DOMAIN = "static.coursestar.net"
 
